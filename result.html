@@ -71,7 +71,6 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th rowspan="2">수업일수</th>
                         <th colspan="3">결석</th>
                         <th colspan="3">지각</th>
                         <th colspan="3">조퇴</th>
@@ -94,7 +93,6 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>${student.수업일수}</td>
                         <td>${student.질병결석}</td>
                         <td>${student.미인정결석}</td>
                         <td>${student.기타결석}</td>
@@ -111,6 +109,7 @@
                 </tbody>
             </table>
             <ul class="list-group mt-3">
+                <li class="list-group-item">· 수업 일수: ${student.수업일수}일</td>
                 <li class="list-group-item">· 결석 총계: ${student.결석총계}회</li>
                 <li class="list-group-item">· 지각 총계: ${student.지각총계}회</li>
                 <li class="list-group-item">· 조퇴 총계: ${student.조퇴총계}회</li>
