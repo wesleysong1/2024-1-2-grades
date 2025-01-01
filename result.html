@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2024학년도 1학년 2학기 2차고사 성적 조회 결과</title>
+    <title>2024학년도 2학기 2차고사 성적 조회 결과</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         table {
-            text-align: center;
+            text-align: center; /* 좌우 가운데 정렬 */
+            font-size: 0.9rem; /* 표 크기 축소 */
         }
         th, td {
-            vertical-align: middle;
+            vertical-align: middle; /* 상하 가운데 정렬 */
+            padding: 0.5rem; /* 셀 여백 축소 */
         }
     </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center"><strong>2024학년도 1학년 2학기 2차고사 성적 및 출결 정보</strong></h1>
+        <h2 class="text-center"><strong>2024학년도 2학기말 성적 및 출결 정보</strong></h2>
         <div id="result" class="mt-4"></div>
-        <button class="btn btn-secondary w-100 mt-4" onclick="window.location.href='index.html'">다시 조회하기</button>
+        <button class="btn btn-secondary w-100 mt-4 mb-4" onclick="window.location.href='index.html'">다시 조회하기</button>
     </div>
 
     <script>
@@ -33,35 +35,336 @@
 
         const resultDiv = document.getElementById('result');
         resultDiv.innerHTML = `
-            <h3><strong>${student.성명} 학생의 성적</strong></h3>
+            <h4><strong>${student.성명} 학생의 2학기 성적</strong></h4>
+            <table class="mt-3">
             <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>국어</th>
-                        <th>도덕</th>
-                        <th>사회</th>
-                        <th>수학</th>
-                        <th>과학</th>
-                        <th>기가</th>
-                        <th>영어</th>
-                        <th>정보</th>
-                        <th>평균</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>${student.국어}</td>
-                        <td>${student.도덕}</td>
-                        <td>${student.사회}</td>
-                        <td>${student.수학}</td>
-                        <td>${student.과학}</td>
-                        <td>${student.기술가정}</td>
-                        <td>${student.영어}</td>
-                        <td>${student.정보}</td>
-                        <td>${student.평균}</td>
-                    </tr>
-                </tbody>
+            <thead class="table-light">
+                <tr>
+                    <th>과목</th>
+                    <th>구분</th>
+                    <th>고사/영역명</th>
+                    <th>점수</th>
+                    <th>만점/반영비율%</th>
+                    <th>원점수/과목평균</th>
+                    <th>성취도(수강자수)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="5">국어</td>
+                    <td>지필</td>
+                    <td>1차고사</td>
+                    <td>${student.국어1차고사}</td>
+                    <td>100/30%</td>
+                    <td rowspan="5">${student.국어원점수}</td>
+                    <td rowspan="5">${student.국어성취도}</td>
+                </tr>
+                <tr>
+                    <td>지필</td>
+                    <td>2차고사</td>
+                    <td>${student.국어2차고사}</td>
+                    <td>100/30%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>듣기말하기</td>
+                    <td>${student.국어듣기말하기}</td>
+                    <td>10/10%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>읽기</td>
+                    <td>${student.국어읽기}</td>
+                    <td>10/10%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>쓰기</td>
+                    <td>${student.국어쓰기}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">사회</td>
+                    <td>지필</td>
+                    <td>1차고사</td>
+                    <td>${student.사회1차고사}</td>
+                    <td>100/30%</td>
+                    <td rowspan="4">${student.사회원점수}</td>
+                    <td rowspan="4">${student.사회성취도}</td>
+                </tr>
+                <tr>
+                    <td>지필</td>
+                    <td>2차고사</td>
+                    <td>${student.사회2차고사}</td>
+                    <td>100/30%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>창의적과제</td>
+                    <td>${student.사회창의적과제}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>단원마무리</td>
+                    <td>${student.사회단원마무리}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">도덕</td>
+                    <td>지필</td>
+                    <td>2차고사</td>
+                    <td>${student.도덕2차고사}</td>
+                    <td>100/30%</td>
+                    <td rowspan="4">${student.도덕원점수}</td>
+                    <td rowspan="4">${student.도덕성취도}</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>가치탐구</td>
+                    <td>${student.도덕가치탐구}</td>
+                    <td>30/30%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>가치이해</td>
+                    <td>${student.도덕가치이해}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>역량평가</td>
+                    <td>${student.도덕역량평가}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">수학</td>
+                    <td>지필</td>
+                    <td>1차고사</td>
+                    <td>${student.수학1차고사}</td>
+                    <td>100/30%</td>
+                    <td rowspan="4">${student.수학원점수}</td>
+                    <td rowspan="4">${student.수학성취도}</td>
+                </tr>
+                <tr>
+                    <td>지필</td>
+                    <td>2차고사</td>
+                    <td>${student.수학2차고사}</td>
+                    <td>100/30%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>배움평가</td>
+                    <td>${student.수학배움평가}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>역량평가</td>
+                    <td>${student.수학역량평가}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td rowspan="5">과학</td>
+                    <td>지필</td>
+                    <td>1차고사</td>
+                    <td>${student.과학1차고사}</td>
+                    <td>100/30%</td>
+                    <td rowspan="5">${student.과학원점수}</td>
+                    <td rowspan="5">${student.과학성취도}</td>
+                </tr>
+                <tr>
+                    <td>지필</td>
+                    <td>2차고사</td>
+                    <td>${student.과학2차고사}</td>
+                    <td>100/30%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>실험및탐구</td>
+                    <td>${student.과학실험및탐구}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>수업밀착형</td>
+                    <td>${student.과학수업밀착형}</td>
+                    <td>10/10%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>교과융합</td>
+                    <td>${student.과학교과융합}</td>
+                    <td>10/10%</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">기가</td>
+                    <td>지필</td>
+                    <td>2차고사</td>
+                    <td>${student.기가2차고사}</td>
+                    <td>100/30%</td>
+                    <td rowspan="4">${student.기가원점수}</td>
+                    <td rowspan="4">${student.기가성취도}</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>생활용품만들기</td>
+                    <td>${student.기가생활용품만들기}</td>
+                    <td>30/30%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>영양소신문만들기</td>
+                    <td>${student.기가영양소신문만들기}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>포트폴리오</td>
+                    <td>${student.기가포트폴리오}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">정보</td>
+                    <td>지필</td>
+                    <td>2차고사</td>
+                    <td>${student.정보2차고사}</td>
+                    <td>100/40%</td>
+                    <td rowspan="3">${student.정보원점수}</td>
+                    <td rowspan="3">${student.정보성취도}</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>프로그래밍</td>
+                    <td>${student.정보프로그래밍}</td>
+                    <td>30/30%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>피지컬컴퓨팅</td>
+                    <td>${student.정보피지컬컴퓨팅}</td>
+                    <td>30/30%</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">체육</td>
+                    <td>수행</td>
+                    <td>건강활동</td>
+                    <td>${student.체육건강활동}</td>
+                    <td>25/25%</td>
+                    <td rowspan="4">${student.체육원점수}</td>
+                    <td rowspan="4">${student.체육성취도}</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>도전활동</td>
+                    <td>${student.체육도전활동}</td>
+                    <td>25/25%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>경쟁활동</td>
+                    <td>${student.체육경쟁활동}</td>
+                    <td>25/25%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>표현활동</td>
+                    <td>${student.체육표현활동}</td>
+                    <td>25/25%</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">음악</td>
+                    <td>수행</td>
+                    <td>표현(가창)</td>
+                    <td>${student.음악표현가창}</td>
+                    <td>30/30%</td>
+                    <td rowspan="4">${student.음악원점수}</td>
+                    <td rowspan="4">${student.음악성취도}</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>표현(기악)</td>
+                    <td>${student.음악표현기악}</td>
+                    <td>30/30%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>감상</td>
+                    <td>${student.음악감상}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>생활화</td>
+                    <td>${student.음악생활화}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">미술</td>
+                    <td>수행</td>
+                    <td>표현</td>
+                    <td>${student.미술표현}</td>
+                    <td>40/40%</td>
+                    <td rowspan="3">${student.미술원점수}</td>
+                    <td rowspan="3">${student.미술성취도}</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>감상</td>
+                    <td>${student.미술감상}</td>
+                    <td>30/30%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>체험</td>
+                    <td>${student.미술체험}</td>
+                    <td>30/30%</td>
+                </tr>
+                <tr>
+                    <td rowspan="5">영어</td>
+                    <td>지필</td>
+                    <td>1차고사</td>
+                    <td>${student.영어1차고사}</td>
+                    <td>100/30%</td>
+                    <td rowspan="5">${student.영어원점수}</td>
+                    <td rowspan="5">${student.영어성취도}</td>
+                </tr>
+                <tr>
+                    <td>지필</td>
+                    <td>2차고사</td>
+                    <td>${student.영어2차고사}</td>
+                    <td>100/30%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>듣기</td>
+                    <td>${student.영어듣기}</td>
+                    <td>20/20%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>쓰기</td>
+                    <td>${student.영어쓰기}</td>
+                    <td>10/10%</td>
+                </tr>
+                <tr>
+                    <td>수행</td>
+                    <td>말하기</td>
+                    <td>${student.영어말하기}</td>
+                    <td>10/10%</td>
+                </tr>
+                <tr>
+                    <td>종교와 삶1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${student.종교성취도}</td>
+                </tr>
+            </tbody>
             </table>
+            
             <ul class="list-group mt-3">
                 <li class="list-group-item">· 학급 석차: ${totalStudentsClass}명 중 ${student.학급석차}등</li>
                 <li class="list-group-item">· 학년 석차: ${totalStudentsGrade}명 중 ${student.학년석차}등</li>
@@ -109,7 +412,7 @@
                 </tbody>
             </table>
             <ul class="list-group mt-3">
-                <li class="list-group-item">· 수업 일수: ${student.수업일수}일</td>
+                <li class="list-group-item">· 수업 일수: ${student.수업일수}일</li>
                 <li class="list-group-item">· 결석 총계: ${student.결석총계}회</li>
                 <li class="list-group-item">· 지각 총계: ${student.지각총계}회</li>
                 <li class="list-group-item">· 조퇴 총계: ${student.조퇴총계}회</li>
