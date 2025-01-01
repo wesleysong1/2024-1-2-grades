@@ -9,6 +9,8 @@
         table {
             text-align: center; /* 좌우 가운데 정렬 */
             font-size: 0.7rem; /* 표 크기 축소 */
+            width: 100%;
+            border-spacing: 0;
         }
         th, td {
             vertical-align: middle; /* 상하 가운데 정렬 */
@@ -21,13 +23,19 @@
             th, td {
                 padding: 1px; /* 모바일에서 셀 여백 더 축소 */
                 font-size: 0.7rem; /* 모바일에서 글씨 크기 축소 */
+                line-height: 1;
             }
+        }
+        table {
+            text-align: center; /* 좌우 가운데 정렬 */
+            font-size: 0.7rem; /* 표 크기 축소 */
+            width: 100%;
+            border-spacing: 0;
         }
     </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center"><strong>조회 결과</strong></h1>
         <div id="result" class="mt-4"></div>
         <button class="btn btn-secondary w-100 mt-4 mb-4" onclick="window.location.href='index.html'">다시 조회하기</button>
     </div>
@@ -46,7 +54,7 @@
         resultDiv.innerHTML = `
             <h4><strong>${student.성명} 학생의 2학기 과목별 성적</strong></h4>
             <table class="mt-3">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-sm">
             <thead class="table-light">
                 <tr>
                     <th>과목</th>
